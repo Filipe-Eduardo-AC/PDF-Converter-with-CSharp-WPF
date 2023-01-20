@@ -9,12 +9,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\Convert Button Icon.png" />
+    <None Remove="Images\favicon.png" />
+    <None Remove="Images\pdf icon.png" />
+    <None Remove="Images\Select File Icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Syncfusion.DocToPDFConverter.Wpf" Version="20.4.0.44" />
     <PackageReference Include="Syncfusion.Pdf.Wpf" Version="20.4.0.44" />
     <PackageReference Include="Syncfusion.SfSkinManager.WPF" Version="20.4.0.44" />
     <PackageReference Include="Syncfusion.Shared.WPF" Version="20.4.0.44" />
     <PackageReference Include="Syncfusion.Themes.FluentLight.WPF" Version="20.4.0.44" />
     <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Convert Button Icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\favicon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\pdf icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Select File Icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
