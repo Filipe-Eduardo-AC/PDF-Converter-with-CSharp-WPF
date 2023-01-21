@@ -9,10 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Convert Button Icon.png" />
+    <None Remove="Images\convert.png" />
     <None Remove="Images\favicon.png" />
-    <None Remove="Images\pdf icon.png" />
-    <None Remove="Images\Select File Icon.png" />
+    <None Remove="Images\logo.png" />
+    <None Remove="Images\select.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,16 +25,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Convert Button Icon.png">
+    <Resource Include="Images\convert.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\favicon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\pdf icon.png">
+    <Resource Include="Images\logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Select File Icon.png">
+    <Resource Include="Images\select.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
