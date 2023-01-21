@@ -46,6 +46,7 @@
                               HorizontalAlignment="Left" Height="35" Label="Select File" Margin="10,10,10,10" 
                               Grid.Row="2" VerticalAlignment="Center" Width="115"
                               Background="#F15642" Foreground="White"
+                              Click="SelectFile_Click"
                               />
 
         <TextBox x:Name="pathTextBox" Grid.Column="1" Grid.Row="2" TextWrapping="NoWrap" AcceptsReturn="False" 
