@@ -1,4 +1,8 @@
 ﻿using Microsoft.Win32;
+using Syncfusion.DocIO;
+using Syncfusion.DocIO.DLS;
+using Syncfusion.DocToPDFConverter;
+using Syncfusion.Pdf;
 using System.Diagnostics;
 using System.Windows;
 
@@ -25,12 +29,27 @@ namespace PDF_Converter
             switch (conversionDropDown.SelectedIndex)
             {
                 case 0: //Convert Doc to PDF
-
+                    ConvertDocToPDF(pathTextBox.Text);
                     break;
                 default:
                     MessageBox.Show("Please select an option", "Attention", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     return;
             }
+
+            OpenFolder(pathTextBox.Text);
+        }
+
+        private void ConvertDocToPDF(string docPath)
+        {
+            WordDocument wordDocument = new WordDocument(docPath, FormatType.Automatic);
+            DocToPDFConverter converter = new DocToPDFConverter();
+            PdfDocument pdfDocument = converter.ConvertToPDF(wordDocument);
+
+            string newPDFPath = docPath.Split('.')[0] + ".pdf";
+            pdfDocument.Save(newPDFPath);
+
+            pdfDocument.Close(true);
+            wordDocument.Close();
         }
 
         private void SelectFile_Click(object sender, RoutedEventArgs e)
