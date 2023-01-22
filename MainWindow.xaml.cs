@@ -4,7 +4,9 @@ using Syncfusion.DocIO.DLS;
 using Syncfusion.DocToPDFConverter;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Parsing;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Windows;
 
@@ -30,11 +32,12 @@ namespace PDF_Converter
 
             switch (conversionDropDown.SelectedIndex)
             {
-                case 0: //Convert Doc to PDF
+                case 0:
                     ConvertDocToPDF(pathTextBox.Text);
                     break;
                 case 1:
-                //To do convert PDF to DOC
+                    ConvertPDFToDoc(pathTextBox.Text);
+                    break;
                 case 2:
                     ConvertPNGToPDF(pathTextBox.Text);
                     break;
@@ -61,7 +64,30 @@ namespace PDF_Converter
 
         private void ConvertPDFToDoc(string pdfPath)
         {
+            WordDocument wordDocument = new WordDocument();
+            IWSection section = wordDocument.AddSection();
+            section.PageSetup.Margins.All = 0;
+            IWParagraph firstParagraph = section.AddParagraph();
 
+            SizeF defaultPageSize = new SizeF(wordDocument.LastSection.PageSetup.PageSize.Width,
+                wordDocument.LastSection.PageSetup.PageSize.Height);
+
+            using (PdfLoadedDocument loadedDocument = new PdfLoadedDocument(pdfPath))
+            {
+                for (int i = 0; i < loadedDocument.Pages.Count; i++)
+                {
+                    using (var image = loadedDocument.ExportAsImage(i, defaultPageSize, false))
+                    {
+                        IWPicture picture = firstParagraph.AppendPicture(image);
+                        picture.Width = image.Width;
+                        picture.Height = image.Height;
+                    }
+                }
+            };
+
+            string newPDFPath = pdfPath.Split(".")[0] + ".docx";
+            wordDocument.Save(newPDFPath);
+            wordDocument.Dispose();
         }
 
         private void ConvertPNGToPDF(string pngPath)
