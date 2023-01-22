@@ -1,6 +1,8 @@
 # PDF Converter
 
-Made with CSharp WPF while studying UI desing with XAML, using the Visual Studio IDE and Syncfusion NuGet Packages and theme (free trial).
+Made with CSharp WPF while studying UI desing with XAML.
+
+Made using the Visual Studio IDE and Syncfusion NuGet Packages and theme (free trial).
 
 This program can convert:
 - Doc to PDF
