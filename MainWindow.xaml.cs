@@ -5,6 +5,8 @@ using Syncfusion.DocToPDFConverter;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using Syncfusion.Pdf.Parsing;
+using Syncfusion.SfSkinManager;
+using Syncfusion.Themes.FluentLight.WPF;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -19,6 +21,20 @@ namespace PDF_Converter
     {
         public MainWindow()
         {
+            FluentTheme fluentTheme = new FluentTheme()
+            {
+                ThemeName = "FluentLight",
+                HoverEffectMode = HoverEffect.None,
+                PressedEffectMode = PressedEffect.Glow,
+                ShowAcrylicBackground = false
+            };
+
+            FluentLightThemeSettings themeSettings = new FluentLightThemeSettings();
+            themeSettings.BodyFontSize = 16;
+            themeSettings.FontFamily = new System.Windows.Media.FontFamily("Barlow");
+            SfSkinManager.RegisterThemeSettings("FluentLight", themeSettings);
+            SfSkinManager.SetTheme(this, fluentTheme);
+
             InitializeComponent();
         }
 
