@@ -9,17 +9,11 @@
         x:Name="myMainWindow"
         mc:Ignorable="d"
         Icon="/Images/favicon.png"
-        Title="PDF Converter" Height="300" Width="500">
-    <Grid>
-        <Grid.LayoutTransform>
-            <ScaleTransform x:Name="ApplicationScaleTransform"
-                            CenterX="0"
-                            CenterY="0"
-                            ScaleX="{Binding ElementName=myMainWindow, Path=ScaleValue}"
-                            ScaleY="{Binding ElementName=myMainWindow, Path=ScaleValue}"
-                            
-                            />
-        </Grid.LayoutTransform>
+        MinHeight="300"
+        MinWidth="500"
+        Title="PDF Converter" Height="300" Width="500" ResizeMode="CanMinimize">
+    
+    <Grid x:Name="myGrid">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"></ColumnDefinition>
